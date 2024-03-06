@@ -2,6 +2,16 @@ let amigosSorteados = [];
 
 function adicionar() {
     let nomeAmigo = document.getElementById('nome-amigo'); 
+        if (nomeAmigo.value == '') {
+            alert('valor não correspondente a esse item');
+            listaAmigos.textContent == '';
+        }
+
+        if (amigosSorteados.includes(nomeAmigo.value)) {
+            alert('O nome já foi inserido!');
+            return;
+        }
+
     let listaAmigos = document.getElementById('lista-amigos');
     amigosSorteados.push(nomeAmigo.value);
     
@@ -19,6 +29,11 @@ function limparNome() {
  }
 
 function sortear() {
+    if (amigosSorteados.length <= 3) {
+        alert('Adicione pelo menos 4 amigos!');
+        return;
+    }
+
     embaralhar(amigosSorteados);
 
     let listaSorteio = document.getElementById('lista-sorteio');
